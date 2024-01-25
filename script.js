@@ -102,6 +102,8 @@ function buyWeapon(){
 }
 else{
     text.innerText="You already have the most powerful weapon!";
+    button2.innerText="Sell weapon for 15 gold";
+    button2.onclick=sellWeapon;
 }
 }
 
@@ -122,6 +124,17 @@ function update(location){
     button1.onclick=location["button functions"][0];
     button2.onclick=location["button functions"][1];
     button3.onclick=location["button functions"][2];
+}
+
+function sellWeapon()
+{
+    if(inventory.length >1){
+        gold+=15;
+        goldText.innerText=gold;
+        let currentWeapon=inventory.shift();
+        text.innerText="You sold a "+currentWeapon+".";
+        text.innerText += " In your inventory you have: "+inventory;
+    }
 }
 
 
